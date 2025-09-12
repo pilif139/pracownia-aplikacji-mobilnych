@@ -5,5 +5,7 @@ public class Main{
         Odpowiedzi odpowiedzi = new Odpowiedzi();
         odpowiedzi.Zadanie1();
         odpowiedzi.Zadanie2();
+        odpowiedzi.Zadanie3A();
+        odpowiedzi.Zadanie3B();
     }
 }

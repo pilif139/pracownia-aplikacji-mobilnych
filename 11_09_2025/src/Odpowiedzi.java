@@ -4,17 +4,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Odpowiedzi {
     private ArrayList<Integer> liczby = new ArrayList<>();
 
     public Odpowiedzi() {
-        File file = new File("src/Dane_2205/liczby.txt");
+        File file = new File("src/Dane_2205/przyklad.txt");
         try(Scanner sc = new Scanner(file)){
             while(sc.hasNextInt()){
                 liczby.add(sc.nextInt());
             }
+            liczby.sort(Integer::compareTo);
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -23,6 +25,15 @@ public class Odpowiedzi {
 
     private void WriteAnswer(String answer){
         try (FileWriter fw = new FileWriter("wyniki4.txt", true)) {
+            fw.write(answer+"\n");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    private void WriteAnswer(String answer, String filename){
+        try (FileWriter fw = new FileWriter(filename, true)) {
             fw.write(answer+"\n");
         } catch (IOException e) {
             System.out.println("An error occurred.");
@@ -87,5 +98,49 @@ public class Odpowiedzi {
             }
         }
         WriteAnswer(String.format("2. %d %d %d %d", najwiecejCzynnikowLiczba, najwiecejCzynnikow, najwiecejRoznychCzynnikowLiczba, najwiecejRoznychCzynnikow));
+    }
+
+    public void Zadanie3A(){
+        int counter = 0;
+
+        for (int x : liczby) {
+            for (int y : liczby) {
+                if (y != x && y % x == 0) {
+                    for (int z : liczby) {
+                        if (z != y && z != x && z % y == 0) {
+                            counter++;
+                            WriteAnswer(String.format("%d %d %d", x, y, z), "trojki.txt");
+                        }
+                    }
+                }
+            }
+        }
+
+        WriteAnswer(String.format("3a. %d", counter));
+    }
+
+    public void Zadanie3B(){
+        int counter = 0;
+
+        for (int a : liczby) {
+            for (int b : liczby) {
+                if (b != a && b % a == 0) {
+                    for (int c : liczby) {
+                        if (c != b && c != a && c % b == 0) {
+                            for (int d : liczby) {
+                                if (d != c && d != b && d != a && d % c == 0) {
+                                    for (int e : liczby) {
+                                        if (e != d && e != c && e != b && e != a && e % d == 0) {
+                                            counter++;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        WriteAnswer(String.format("3b. %d", counter));
     }
 }
