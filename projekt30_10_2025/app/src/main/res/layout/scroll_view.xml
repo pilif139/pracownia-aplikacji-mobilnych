@@ -73,14 +73,16 @@
                     android:text="pomarańcz"
                     android:textSize="40sp"
                     />
+
+                <Switch
+                    android:id="@+id/switch3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Czy masz blond włosy"
+                    android:textSize="60sp"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
             </RadioGroup>
-            <Switch
-                android:id="@+id/switch3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Czy masz blond włosy"
-                android:textSize="60sp"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
