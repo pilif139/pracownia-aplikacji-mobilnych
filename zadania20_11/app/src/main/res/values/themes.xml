@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.zadanie1" parent="Theme.Design.Light">
+    </style>
+    <style name="Base.Theme.zadanie2" parent="Theme.Material3.Dark">
+    </style>
+    <style name="Base.Theme.zadanie3" parent="Theme.AppCompat">
+    </style>
+    <style name="Base.Theme.zadanie4" parent="Theme.MaterialComponents">
+    </style>
+    <style name="Base.Theme.zadanie5" parent="Theme.MaterialComponents.Light">
+    </style>
+    <style name="Base.Theme.zadanie6" parent="Theme.Design.BottomSheetDialog">
+    </style>
+
+    <style name="Theme.Zadania20_11" parent="Base.Theme.Zadania20_11" />
+</resources>
