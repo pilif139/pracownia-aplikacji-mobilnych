@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">zadanie09_02</string>
+    <string name="no_uniform">Zgłoś brak mundurka</string>
+    <string name="name">Imię</string>
+    <string name="surname">Nazwisko</string>
+    <string name="classname">Klasa</string>
+    <string name="note">ZAPISZ UWAGĘ</string>
+    <string name="reported">Zapisano uwagę</string>
+    <string name="back">DODAJ NOWĄ UWAGĘ</string>
+</resources>
