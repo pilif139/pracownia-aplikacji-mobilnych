@@ -17,10 +17,13 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import android.Manifest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.row, R.id.Row, gatunki);
         list.setAdapter(arrayAdapter);
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            public void onItemClick(AdapterView<?> adapter, View view, int itemInt, long itemLong){
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> adapter, View view, int itemInt, long itemLong) {
                 var elementWybrany = (String) list.getItemAtPosition(itemInt);
-                switch (elementWybrany){
+                switch (elementWybrany) {
                     case "Pies":
                         wiek.setText("18");
                         break;
@@ -71,38 +74,40 @@ public class MainActivity extends AppCompatActivity {
                 var value = String.valueOf(progress);
                 wiek.setText(value);
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
 
         Button button = findViewById(R.id.button);
-        button.setOnClickListener(v->{
-            String wlasciciel = ((EditText)findViewById(R.id.wlasciciel)).getText().toString();
-            String gatunek = ((ListView)findViewById(R.id.gatunki)).getSelectedItem().toString();
-            String celWizyty = ((EditText)findViewById(R.id.cel_wizyty)).getText().toString();
-            String czas = ((EditText)findViewById(R.id.czas)).getText().toString();
+        button.setOnClickListener(v -> {
+            String wlasciciel = ((EditText) findViewById(R.id.wlasciciel)).getText().toString();
+            String gatunek = ((ListView) findViewById(R.id.gatunki)).getSelectedItem().toString();
+            String celWizyty = ((EditText) findViewById(R.id.cel_wizyty)).getText().toString();
+            String czas = ((EditText) findViewById(R.id.czas)).getText().toString();
 
-
-            Uri ringtone =
-                    RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Uri ringtone = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             NotificationChannel channel = new NotificationChannel(this.CHANNEL_ID, this.CHANNEL_NAME,
                     NotificationManager.IMPORTANCE_DEFAULT);
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
-            Notification notification =
-                    new NotificationCompat.Builder(this, this.CHANNEL_ID)
-                            .setSmallIcon(android.R.drawable.ic_dialog_info)
-                            .setContentTitle("Powiadomienie")
-                            .setContentText(String.format("%s, %s, %s, %s", wlasciciel, gatunek, celWizyty, czas))
-                            .setSound(ringtone)
-                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                            .build();
+            Notification notification = new NotificationCompat.Builder(this, this.CHANNEL_ID)
+                    .setSmallIcon(android.R.drawable.ic_dialog_info)
+                    .setContentTitle("Powiadomienie")
+                    .setContentText(String.format("%s, %s, %s, %s", wlasciciel, gatunek, celWizyty, czas))
+                    .setSound(ringtone)
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .build();
             int id = 1;
-            notificationManager.notify(id, notification);
+            if (ActivityCompat.checkSelfPermission(this,
+                    Manifest.permission.POST_NOTIFICATIONS) == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                notificationManager.notify(id, notification);
+            }
         });
     }
 }
