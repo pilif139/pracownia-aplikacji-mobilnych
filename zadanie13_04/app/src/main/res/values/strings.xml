@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">zadanie13_04</string>
+    <string name="nameLabel">Imię</string>
+    <string name="emailLabel">Adres E-Mail</string>
+    <string name="increaseBtn">Zwiększ liczbę</string>
+    <string name="increaseBtnLabel">Kliknąłeś przycisk %d razy</string>
+    <string name="noData">Najpierw uzupełnij swoje dane</string>
+    <string name="welcome">Witaj, %1$s! Twój adres e-mail to: %2$s</string>
+</resources>
