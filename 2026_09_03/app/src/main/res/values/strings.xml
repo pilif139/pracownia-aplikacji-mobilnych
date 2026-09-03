@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">egzamin</string>
+    <string name="heading">Gra w kości. Autor 00000000</string>
+    <string name="shoot">RZUĆ KOŚĆMI</string>
+    <string name="result">Wynik tego losowania: %1$d</string>
+    <string name="score">Wynik gry: %1$d</string>
+    <string name="reset">RESETUJ WYNIK</string>
+</resources>
