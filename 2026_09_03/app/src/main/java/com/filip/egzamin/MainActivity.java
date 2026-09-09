@@ -64,16 +64,16 @@ public class MainActivity extends AppCompatActivity {
 
         int sum = 0;
 
-        int[] drawnNumbers = new int[]{0, 0, 0, 0, 0};
+        int[] drawnNumbers = new int[]{0, 0, 0, 0, 0, 0};
         for (int i = 0; i < images.length; i++) {
-            int random = (int) (Math.random() * 5) + 1;
-            drawnNumbers[i] += 1;
+            int random = (int) (Math.random() * 6) + 1;
+            drawnNumbers[random - 1] += 1;
             images[i].setImageDrawable(drawables[random - 1]);
         }
 
         for (int i = 0; i < drawnNumbers.length; i++) {
             if(drawnNumbers[i] > 1){
-                sum += i * drawnNumbers[i];
+                sum += (i+1) * drawnNumbers[i];
             }
         }
         result.setText(getString(R.string.result, sum));
