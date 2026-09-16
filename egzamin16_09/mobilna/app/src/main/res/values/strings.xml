@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">egzamin16_09</string>
+    <string name="title">Urządzenia domowe</string>
+    <string name="author">Autor: 000000</string>
+    <string name="washingMachine">Pralka</string>
+    <string name="washingNumberHint">Podaj nr prania 1..12</string>
+    <string name="confirm">Zatwierdź</string>
+    <string name="vacuum">Odkurzacz</string>
+    <string name="turnOn">Włącz</string>
+</resources>
