@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:layout_margin="20dp"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Właściwości czcionki"
+        android:background="@color/primary_color"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Rozmiar: " />
+
+    <SeekBar
+        android:id="@+id/sizeSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="40"/>
+
+    <TextView
+        android:id="@+id/quote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dzień dobry" />
+
+    <Button
+        android:id="@+id/nextQuoteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=">>"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/primary_color"
+        android:layout_gravity="center"
+        android:textStyle="bold"/>
+
+
+</LinearLayout>
